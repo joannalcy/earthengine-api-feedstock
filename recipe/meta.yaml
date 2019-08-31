@@ -1,6 +1,6 @@
 {% set name = "earthengine-api" %}
-{% set version = "0.1.182" %}
-{% set sha256 = "318156b2178b8d6f9be51483b17f9bc9209e4d76620a05e4bb996b846cafe6ea" %}
+{% set version = "0.1.192" %}
+{% set sha256 = "2d09591c15d10a6755060b6777aa3b1f3f9139931656e406e70da5739d9010bb" %}
 
 package:
   name: {{ name|lower }}
@@ -13,7 +13,7 @@ source:
 
 build:
   noarch: python
-  number: 1
+  number: 0
   entry_points:
     - earthengine = ee.cli.eecli:main
   script: python -m pip install --no-deps --ignore-installed .
@@ -23,11 +23,13 @@ requirements:
     - python
     - pip
   run:
-    - python
     - google-api-python-client
     - google-auth>=1.4.1
     - google-auth-httplib2>=0.0.3
+    - google-cloud-storage
     - httplib2>=0.9.2,<1dev
+    - python
+    - setuptools
     - six
 
 test:
@@ -53,8 +55,13 @@ extra:
   recipe-maintainers:
     - arian487
     - arybak45
+    - bengalin
     - dag-ee
+    - dotstarmoney
+    - joannalcy
+    - michaelfdewitt
     - mike-d-d
     - saicheems
+    - sufyanAbbasi
     - twotabbies
     - tylere
